@@ -147,17 +147,10 @@
 - **Elasticsearch 8.x** 로컬 실행 (`http://localhost:9200`)
 - **OpenAI API 키**
 
-### Elasticsearch 설치 (처음 설치하는 경우)
-
-Docker를 사용하면 가장 간편합니다.
+### Elasticsearch 설치
 
 ```bash
-docker run -d \
-  --name elasticsearch \
-  -p 9200:9200 \
-  -e "discovery.type=single-node" \
-  -e "xpack.security.enabled=false" \
-  docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+docker compose up -d
 ```
 
 > 설치 후 `http://localhost:9200` 에 접속해 `{"tagline": "You Know, for Search"}` 응답이 오면 정상입니다.
