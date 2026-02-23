@@ -1,0 +1,24 @@
+# 웹 앱
+streamlit==1.54.0
+
+# 데이터 처리
+pandas==2.3.3
+
+# 차트
+plotly==6.5.2
+
+# 주가 데이터
+finance-datareader==0.9.102
+
+# 검색 엔진
+elasticsearch==8.19.3
+
+# LLM / 임베딩
+openai             
+python-dotenv    
+
+
+
+
+
+
