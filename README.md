@@ -84,7 +84,7 @@
 📦 rag-stock-assistant/
 ├── 📄 app.py              # Streamlit 메인 앱 (UI 및 흐름 제어)
 ├── 📄 rag_module.py       # RAG 핵심 로직 (검색·임베딩·LLM 호출)
-├── 📄 data_loader.py      # KRX 데이터 수집 및 ES 인덱스 적재
+├── 📄 elastic_bulk.py      # KRX 데이터 수집 및 ES 인덱스 적재
 ├── 📄 .env                # 환경변수 (API 키 등) ← 직접 생성 필요
 ├── 📄 requirements.txt    # 패키지 목록
 └── 📄 README.md           
