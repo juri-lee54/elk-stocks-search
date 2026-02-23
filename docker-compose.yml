@@ -1,0 +1,41 @@
+version: '3.8'
+
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.3.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - "ES_JAVA_OPTS=-Xms4g -Xmx4g"
+    ports:
+      - "9200:9200"
+    volumes:
+     - ./es/es1/data:/usr/share/elasticsearch/data
+     - ./es/es1/log:/usr/share/elasticsearch/log
+     - ./config/user_dic.txt:/usr/share/elasticsearch/config/user_dic.txt
+     - ./config/synonym_dic.txt:/usr/share/elasticsearch/config/synonym_dic.txt
+    networks:
+      - elk
+
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:9.3.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - SERVER_NAME=127.0.0.1
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+
+networks:
+  elk:
+    driver: bridge
